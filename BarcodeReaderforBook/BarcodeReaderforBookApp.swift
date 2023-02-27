@@ -11,7 +11,7 @@ import SwiftUI
 struct BarcodeReaderforBookApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TrackingView()
         }
     }
 }

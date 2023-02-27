@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		37B36AF929ACDB43006C5C8A /* BarcodeReaderforBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36AF829ACDB43006C5C8A /* BarcodeReaderforBookApp.swift */; };
-		37B36AFB29ACDB43006C5C8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36AFA29ACDB43006C5C8A /* ContentView.swift */; };
 		37B36AFD29ACDB44006C5C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B36AFC29ACDB44006C5C8A /* Assets.xcassets */; };
 		37B36B0029ACDB44006C5C8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B36AFF29ACDB44006C5C8A /* Preview Assets.xcassets */; };
 		37B36B0A29ACDB45006C5C8A /* BarcodeReaderforBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B0929ACDB45006C5C8A /* BarcodeReaderforBookTests.swift */; };
 		37B36B1429ACDB45006C5C8A /* BarcodeReaderforBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B1329ACDB45006C5C8A /* BarcodeReaderforBookUITests.swift */; };
 		37B36B1629ACDB45006C5C8A /* BarcodeReaderforBookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B1529ACDB45006C5C8A /* BarcodeReaderforBookUITestsLaunchTests.swift */; };
+		37B36B2729ACDB87006C5C8A /* TrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B2629ACDB87006C5C8A /* TrackingView.swift */; };
+		37B36B2929ACDBA8006C5C8A /* TrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B2829ACDBA8006C5C8A /* TrackingViewModel.swift */; };
+		37B36B2B29ACDC3B006C5C8A /* PreviewLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B2A29ACDC3B006C5C8A /* PreviewLayerView.swift */; };
+		37B36B2D29ACDC55006C5C8A /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B2C29ACDC55006C5C8A /* CaptureSession.swift */; };
+		37B36B2F29ACDC6E006C5C8A /* TrackingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B2E29ACDC6E006C5C8A /* TrackingClient.swift */; };
+		37B36B3129ACDC7F006C5C8A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B3029ACDC7F006C5C8A /* Book.swift */; };
+		37B36B3329ACDC8D006C5C8A /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B3229ACDC8D006C5C8A /* HttpClient.swift */; };
+		37B36B3529ACDCA6006C5C8A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B36B3429ACDCA6006C5C8A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +43,6 @@
 /* Begin PBXFileReference section */
 		37B36AF529ACDB43006C5C8A /* BarcodeReaderforBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeReaderforBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B36AF829ACDB43006C5C8A /* BarcodeReaderforBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderforBookApp.swift; sourceTree = "<group>"; };
-		37B36AFA29ACDB43006C5C8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		37B36AFC29ACDB44006C5C8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B36AFF29ACDB44006C5C8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		37B36B0529ACDB45006C5C8A /* BarcodeReaderforBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarcodeReaderforBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +50,14 @@
 		37B36B0F29ACDB45006C5C8A /* BarcodeReaderforBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarcodeReaderforBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B36B1329ACDB45006C5C8A /* BarcodeReaderforBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderforBookUITests.swift; sourceTree = "<group>"; };
 		37B36B1529ACDB45006C5C8A /* BarcodeReaderforBookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderforBookUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		37B36B2629ACDB87006C5C8A /* TrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingView.swift; sourceTree = "<group>"; };
+		37B36B2829ACDBA8006C5C8A /* TrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewModel.swift; sourceTree = "<group>"; };
+		37B36B2A29ACDC3B006C5C8A /* PreviewLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewLayerView.swift; sourceTree = "<group>"; };
+		37B36B2C29ACDC55006C5C8A /* CaptureSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
+		37B36B2E29ACDC6E006C5C8A /* TrackingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingClient.swift; sourceTree = "<group>"; };
+		37B36B3029ACDC7F006C5C8A /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		37B36B3229ACDC8D006C5C8A /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		37B36B3429ACDCA6006C5C8A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				37B36AF829ACDB43006C5C8A /* BarcodeReaderforBookApp.swift */,
-				37B36AFA29ACDB43006C5C8A /* ContentView.swift */,
+				37B36B2229ACDB52006C5C8A /* Scene */,
+				37B36B2329ACDB5B006C5C8A /* UIView */,
+				37B36B2429ACDB64006C5C8A /* Model */,
+				37B36B2529ACDB6A006C5C8A /* Utilities */,
 				37B36AFC29ACDB44006C5C8A /* Assets.xcassets */,
 				37B36AFE29ACDB44006C5C8A /* Preview Content */,
 			);
@@ -125,6 +142,42 @@
 				37B36B1529ACDB45006C5C8A /* BarcodeReaderforBookUITestsLaunchTests.swift */,
 			);
 			path = BarcodeReaderforBookUITests;
+			sourceTree = "<group>";
+		};
+		37B36B2229ACDB52006C5C8A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				37B36B2629ACDB87006C5C8A /* TrackingView.swift */,
+				37B36B2829ACDBA8006C5C8A /* TrackingViewModel.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		37B36B2329ACDB5B006C5C8A /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				37B36B2A29ACDC3B006C5C8A /* PreviewLayerView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		37B36B2429ACDB64006C5C8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37B36B2C29ACDC55006C5C8A /* CaptureSession.swift */,
+				37B36B2E29ACDC6E006C5C8A /* TrackingClient.swift */,
+				37B36B3029ACDC7F006C5C8A /* Book.swift */,
+				37B36B3229ACDC8D006C5C8A /* HttpClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37B36B2529ACDB6A006C5C8A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				37B36B3429ACDCA6006C5C8A /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +310,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37B36AFB29ACDB43006C5C8A /* ContentView.swift in Sources */,
+				37B36B3129ACDC7F006C5C8A /* Book.swift in Sources */,
+				37B36B2929ACDBA8006C5C8A /* TrackingViewModel.swift in Sources */,
+				37B36B2729ACDB87006C5C8A /* TrackingView.swift in Sources */,
+				37B36B3329ACDC8D006C5C8A /* HttpClient.swift in Sources */,
+				37B36B3529ACDCA6006C5C8A /* Constants.swift in Sources */,
+				37B36B2B29ACDC3B006C5C8A /* PreviewLayerView.swift in Sources */,
+				37B36B2F29ACDC6E006C5C8A /* TrackingClient.swift in Sources */,
 				37B36AF929ACDB43006C5C8A /* BarcodeReaderforBookApp.swift in Sources */,
+				37B36B2D29ACDC55006C5C8A /* CaptureSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +480,13 @@
 				DEVELOPMENT_TEAM = 3264V2VMB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "use canera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,11 +511,13 @@
 				DEVELOPMENT_TEAM = 3264V2VMB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "use canera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
