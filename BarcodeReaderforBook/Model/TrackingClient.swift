@@ -1,6 +1,6 @@
 //
 //  TrackingClient.swift
-//  BarcodeReaderByGogleBooks
+//  BarcodeReaderforBook
 //
 //  Created by amamiya on 2023/02/24.
 //
@@ -20,13 +20,13 @@ final class TrackingClient: NSObject, ObservableObject {
     
     private lazy var sequenceRequestHandler = VNSequenceRequestHandler()
     
-    func request(cvPixleBuffer pixelBuffer: CVPixelBuffer, orientation: CGImagePropertyOrientation, options: [VNImageOption: Any] = [:]) {
+    func request(cvPixelBuffer pixelBuffer: CVPixelBuffer, orientation: CGImagePropertyOrientation, options: [VNImageOption: Any] = [:]) {
         switch state {
         case .stop:
-            initRequest(cvPielBuffer: pixelBuffer, orientation: orientation, options: options)
+            initRequest(cvPixelBuffer: pixelBuffer, orientation: orientation, options: options)
         case .tracking(trackingRequests: let trackingRequests):
             if trackingRequests.isEmpty {
-                initRequest(cvPielBuffer: pixelBuffer, orientation: orientation, options: options)
+                initRequest(cvPixelBuffer: pixelBuffer, orientation: orientation, options: options)
                 break
             }
             do {
@@ -35,7 +35,7 @@ final class TrackingClient: NSObject, ObservableObject {
                 print(error.localizedDescription)
             }
             
-            let newTrackingRequest = trackingRequests.compactMap { request -> VNTrackObjectRequest? in
+            let newTrackingRequests = trackingRequests.compactMap { request -> VNTrackObjectRequest? in
                 guard let results = request.results else { return nil }
                 guard let observation = results[0] as? VNDetectedObjectObservation else { return nil }
                 
@@ -51,20 +51,20 @@ final class TrackingClient: NSObject, ObservableObject {
                 }
             }
             
-            state = .tracking(trackingRequests: newTrackingRequest)
-            if newTrackingRequest.isEmpty {
+            state = .tracking(trackingRequests: newTrackingRequests)
+            if newTrackingRequests.isEmpty {
                 self.visionObjectObservations = []
                 return
             }
             
-            newTrackingRequest.forEach { request in
+            newTrackingRequests.forEach { request in
                 guard let result = request.results as? [VNDetectedObjectObservation] else { return }
                 self.visionObjectObservations = result
             }
             
         }
     }
-    private func initRequest(cvPielBuffer pixelBuffer: CVPixelBuffer, orientation: CGImagePropertyOrientation, options: [VNImageOption: Any] = [:] ){
+    private func initRequest(cvPixelBuffer pixelBuffer: CVPixelBuffer, orientation: CGImagePropertyOrientation, options: [VNImageOption: Any] = [:] ){
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: options)
         
         do {
@@ -78,7 +78,7 @@ final class TrackingClient: NSObject, ObservableObject {
             }
             try imageRequestHandler.perform([detectionRequest])
         } catch let error as NSError {
-            NSLog("Falied to perform detectionRequest: %@", error)
+            NSLog("Failed to perform detectionRequest: %@", error)
         }
     }
     
@@ -113,7 +113,12 @@ final class TrackingClient: NSObject, ObservableObject {
             completion(.success(requests))
         }
         
-        barcodeRequest.symbologies = [.qr, .codabar, .ean13]
+        if #available(iOS 15.0, *) {
+            barcodeRequest.symbologies = [.qr, .codabar, .ean13]
+        } else {
+            // Fallback on earlier versions
+            barcodeRequest.symbologies = [.qr, .ean13]
+        }
         return barcodeRequest
         
     }

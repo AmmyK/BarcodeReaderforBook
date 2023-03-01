@@ -1,6 +1,6 @@
 //
 //  Book.swift
-//  BarcodeReaderByGogleBooks
+//  BarcodeReaderforBook
 //
 //  Created by amamiya on 2023/02/26.
 //
@@ -12,10 +12,10 @@ import Foundation
 struct Book: Codable {
     let kind: String
     let totalItems: Int
-    let items: Items
+    let items: [Item]
 }
 
-struct Items: Codable{
+struct Item: Codable{
     let kind: String
     let id: String
     let etag: String

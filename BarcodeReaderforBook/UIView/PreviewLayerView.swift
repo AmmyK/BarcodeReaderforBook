@@ -1,6 +1,6 @@
 //
 //  PreviewLayerView.swift
-//  BarcodeReaderByGogleBooks
+//  BarcodeReaderforBook
 //
 //  Created by amamiya on 2023/02/26.
 //

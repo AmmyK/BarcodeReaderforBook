@@ -1,6 +1,6 @@
 //
 //  CaptureSession.swift
-//  BarcodeReaderByGogleBooks
+//  BarcodeReaderforBook
 //
 //  Created by amamiya on 2023/02/20.
 //
@@ -13,8 +13,8 @@ final class CaptureSession: NSObject, ObservableObject {
     
     struct Outputs {
         let cameraIntrinsicData: CFTypeRef
-        let pixleBuffer: CVImageBuffer
-        let pixleBufferSize: CGSize
+        let pixelBuffer: CVImageBuffer
+        let pixelBufferSize: CGSize
     }
     
     private let captureSession = AVCaptureSession()
@@ -118,7 +118,7 @@ final class CaptureSession: NSObject, ObservableObject {
 }
 
 extension CaptureSession: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let cameraIntrinsicData = CMGetAttachment(sampleBuffer, key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, attachmentModeOut: nil) else {
             return  }
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
@@ -130,8 +130,8 @@ extension CaptureSession: AVCaptureVideoDataOutputSampleBufferDelegate {
         let height = CVPixelBufferGetHeight(pixelBuffer)
         
         self.outputs.send(.init(cameraIntrinsicData: cameraIntrinsicData,
-                                pixleBuffer: pixelBuffer,
-                                pixleBufferSize: CGSize(width: width, height: height)))
+                                pixelBuffer: pixelBuffer,
+                                pixelBufferSize: CGSize(width: width, height: height)))
     }
 }
 

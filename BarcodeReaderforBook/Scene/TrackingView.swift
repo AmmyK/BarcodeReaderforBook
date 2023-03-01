@@ -1,6 +1,6 @@
 //
 //  TrackingView.swift
-//  BarcodeReaderByGogleBooks
+//  BarcodeReaderforBook
 //
 //  Created by amamiya on 2023/02/26.
 //
@@ -17,33 +17,35 @@ struct TrackingView: View {
         #else
             VStack{
                 PreviewLayerView(previewLayer: viewModel.previewLayer, detectedRect: viewModel.detectedRects, pixelSize: viewModel.pixelSize)
+                ResultView(viewModel: viewModel)
                 BarcodeListView(info: viewModel.info)
-                	
-//                HStack{
-//                    Button {
-//                        <#code#>
-//                    } label: {
-//                        Label("Add", systemImage: "paperplane")
-//                    }
-//                    .font(.headline)
-//                    .foregroundColor(.primary)
-//                    .padding()
-//                    .frame(width: 220, height: 60)
-//                    .background(viewModel.isAdded ? .green: .gray)
-//                    .cornerRadius(15.0, antialiased: true)
-//                    .disabled(!viewModel.isAdded)
-//
-//                    Button {
-//                        isShowingCoreDataView.toggle()
-//                    } label: {
-//                        Label("List", systemImage: "list.bullet.clipboard")
-//                            .font(.headline)
-//                            .foregroundColor(.primary)
-//                            .padding()
-//                            .background(.blue)
-//                            .cornerRadius(15.0, antialiased: true)
-//                    }
-//                }
+                
+                
+                HStack{
+                    Button {
+                        
+                    } label: {
+                        Label("Add", systemImage: "paperplane")
+                    }
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .padding()
+                    .frame(width: 220, height: 60)
+                    .background(viewModel.isAdded ? .green: .gray)
+                    .cornerRadius(15.0, antialiased: true)
+                    .disabled(!viewModel.isAdded)
+
+                    Button {
+                        isShowingCoreDataView.toggle()
+                    } label: {
+                        Label("List", systemImage: "list.bullet.clipboard")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                            .padding()
+                            .background(.blue)
+                            .cornerRadius(15.0, antialiased: true)
+                    }
+                }
             }
             .onAppear{
                 viewModel.startSession()
@@ -71,6 +73,26 @@ struct BarcodeListView: View {
                     }
                 }
             })
+        }
+    }
+}
+
+struct ResultView: View {
+    @StateObject var viewModel: TrackingViewModel
+    
+    var body: some View {
+        List {
+            Section {
+                ForEach(viewModel.book, id: \.volumeInfo.title) { book in
+                    VStack(alignment: .leading) {
+                        Text("\(book.volumeInfo.title)")
+                    
+                    }
+                }
+            } header: {
+                Text("Detected Result")
+            }
+
         }
     }
 }

@@ -1,6 +1,6 @@
 //
 //  TrackingViewModel.swift
-//  BarcodeReaderByGogleBooks
+//  BarcodeReaderforBook
 //
 //  Created by amamiya on 2023/02/24.
 //
@@ -41,12 +41,12 @@ final class TrackingViewModel: ObservableObject {
                 
                 var requestHandlerOptions: [VNImageOption: AnyObject] = [:]
                 requestHandlerOptions[VNImageOption.cameraIntrinsics] = output.cameraIntrinsicData
-                self.pixelSize = output.pixleBufferSize
+                self.pixelSize = output.pixelBufferSize
                 
                 if !self.isAdded {
-                    self.trackingClient.request(cvPixleBuffer: output.pixleBuffer,
-                                                orientation: self.makeOritentation(with: UIDevice.current.orientation),
-                                                options: requestHandlerOptions)
+                    self.trackingClient.request	(cvPixelBuffer: output.pixelBuffer,
+                                                 orientation: self.makeOrientation(with: UIDevice.current.orientation),
+                                                 options: requestHandlerOptions)
                 }
             }
             .store(in: &cancellables)
@@ -76,7 +76,7 @@ final class TrackingViewModel: ObservableObject {
                 }
                 return data
             }
-            .assign(to: &$janCode)
+            .assign(to: &$barcode)
         
         $isTracking.sink {
             if $0 == true {
@@ -97,7 +97,7 @@ final class TrackingViewModel: ObservableObject {
         captureSession.startSession()
     }
     
-    private func makeOritentation(with deviceOrientation: UIDeviceOrientation) -> CGImagePropertyOrientation {
+    private func makeOrientation(with deviceOrientation: UIDeviceOrientation) -> CGImagePropertyOrientation {
         switch deviceOrientation{
         case .portraitUpsideDown:
             return .rightMirrored
@@ -110,24 +110,25 @@ final class TrackingViewModel: ObservableObject {
         }
     }
 
-    @Published var book: [Book] = []
-    @Published var janCode: [String:String] = [:]
+    @Published var book: [Item] = []
+    @Published var barcode: [String:String] = [:]
     
     func fetchBook() async throws {
-        let urlString = Constants.baseURL + EndPoints.q
+        let urlString = Constants.baseURL
         guard let url = URL(string: urlString) else {
             throw HttpError.badURL
         }
 
         var component = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        component?.queryItems = [URLQueryItem(name: "q", value: janCode["value"])]
+        component?.queryItems = [URLQueryItem(name: EndPoints.q, value: barcode["value"])]
         
         guard let addedQueryUrl = component?.url else { return }
-        
-        let response: [Book] = try await HttpClient().fetch(url: addedQueryUrl)
+        print(addedQueryUrl.absoluteURL)
+        let items: [Item] = try await HttpClient().fetch(url: addedQueryUrl)
+        sleep(1)
         DispatchQueue.main.async {
-            if !response.isEmpty {
-                self.book = response
+            if !items.isEmpty {
+                self.book = items
                 self.isAdded = true
             }
         }
@@ -141,7 +142,7 @@ final class TrackingViewModel: ObservableObject {
         self.info = [[:]]
         self.isAdded = false
         self.isTracking = false
-        self.janCode = [:]
+        self.barcode = [:]
     }
     
 }
